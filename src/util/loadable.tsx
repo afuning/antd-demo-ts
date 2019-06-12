@@ -4,7 +4,7 @@ import { Skeleton } from 'antd';
 
 const LoadSkeleton = () => {
   return (
-    <Skeleton />
+    <Skeleton active/>
   );
 }
 

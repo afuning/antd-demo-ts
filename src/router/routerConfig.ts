@@ -27,20 +27,6 @@ const RouterConfig: any[] = [
       ...ProductRouter,
     ]
   }
-  // {
-  //   name: '所有产品',
-  //   routes: [
-  //     {
-  //       name: '国内短信',
-  //       path: '/sms-domestic',
-  //       component: Product,
-  //       icon: 'appstore',
-  //       routes: [
-          
-  //       ]
-  //     }
-  //   ]
-  // },
 ];
 
 export default RouterConfig;
