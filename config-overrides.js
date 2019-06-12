@@ -22,6 +22,7 @@ module.exports = override(
     '@assets': `${paths.appSrc}/assets/`,
     '@layouts': `${paths.appSrc}/layouts/`,
     '@components': `${paths.appSrc}/components/`,
-    '@util': `${paths.appSrc}/util/`
+    '@util': `${paths.appSrc}/util/`,
+    '@models': `${paths.appSrc}/models/`
   }),
 );

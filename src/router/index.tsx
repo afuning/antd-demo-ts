@@ -1,20 +1,21 @@
 import React from 'react';
-import {HashRouter, Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 import RouterConfig from './routerConfig';
 
 const routers = () => (
-  <HashRouter>
-    <Switch>
-      {RouterConfig.map(item => (
+  <Switch>
+    <Redirect from="/" to={RouterConfig[0].path} exact />
+    {RouterConfig.map(item => {
+      console.log(item);
+      return (
         <Route
           key={item.path}
-          exact={true}
           path={item.path}
           component={item.component}
         />
-      ))}
-    </Switch>
-  </HashRouter>
+      )
+    })}
+  </Switch>
 );
 
 export default routers;

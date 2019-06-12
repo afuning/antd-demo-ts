@@ -1,13 +1,13 @@
 import React from 'react';
+import BaseRouters from '@/router/index';
 import './style.less';
-import RouterConfig from '@/router/routerConfig';
-import { Layout, Menu, Icon, Breadcrumb } from 'antd';
+import BasicMenu from './BasicMenu';
+import { Layout, Breadcrumb } from 'antd';
 const { Header, Content, Sider } = Layout;
 
 const initialState = { collapsed: false };
 type State = Readonly<typeof initialState>;
 type PropsType = {
-  children?: JSX.Element
 }
 
 class BasicLayout extends React.Component <PropsType, State> {
@@ -31,27 +31,7 @@ class BasicLayout extends React.Component <PropsType, State> {
             onCollapse={this.onCollapse}
             theme="light"
           >
-            <Menu
-              defaultSelectedKeys={['1']}
-              mode="inline"
-              style={{ height: '100%', borderRight: 0 }}
-              onClick={this.handleClick}
-            >
-              <Menu.SubMenu
-                key="sub4"
-                title={
-                  <span>
-                    <Icon type="setting" />
-                    <span>Navigation Three</span>
-                  </span>
-                }
-              >
-                <Menu.Item key="1">
-                  <Icon type="pie-chart" />
-                  <span>管理控制台</span>
-                </Menu.Item>
-              </Menu.SubMenu>
-            </Menu>
+            <BasicMenu />
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
@@ -64,7 +44,7 @@ class BasicLayout extends React.Component <PropsType, State> {
                 margin: 0,
               }}
             >
-              {this.props.children}
+              <BaseRouters />
             </Content>
             {/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer> */}
           </Layout>

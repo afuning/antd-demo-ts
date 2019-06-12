@@ -1,14 +1,12 @@
 import React from 'react';
 import BasicLayout from '@layouts/basic-layout/BasicLayout';
-import Routers from '@/router/index';
+import {HashRouter} from 'react-router-dom';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <BasicLayout>
-        <Routers />
-      </BasicLayout>
-    </div>
+    <HashRouter>
+      <BasicLayout />
+    </HashRouter>
   );
 }
 

@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Home: React.FC = () => {
+const User: React.FC = () => {
   return (
-    <div className="home">
-      <div>aaaaa</div>
+    <div className="user">
+      <div>User</div>
     </div>
   );
 }
 
 
-export default Home;
+export default User;
