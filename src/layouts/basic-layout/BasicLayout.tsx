@@ -3,7 +3,7 @@ import BaseRouters from '@/router/index';
 import style from './style.module.less';
 import BasicMenu from './BasicMenu';
 import BasicBread from './BasicBread';
-import { Layout } from 'antd';
+import { Layout, BackTop } from 'antd';
 const { Header, Content, Sider } = Layout;
 
 const initialState = { collapsed: false };
@@ -42,6 +42,7 @@ class BasicLayout extends React.Component <PropsType, State> {
             {/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer> */}
           </Layout>
         </Layout>
+        <BackTop />
       </Layout>
     );
   }

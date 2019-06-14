@@ -8,5 +8,4 @@ const StatisticIndex: React.FC = () => {
   );
 }
 
-
 export default StatisticIndex;
