@@ -5,7 +5,7 @@ import { iIcon } from '@/models/global.interface';
 import { Menu, Icon } from 'antd';
 const {SubMenu, ItemGroup} = Menu;
 
-const initialState = {  };
+const initialState = { defaultSelectedKeys: '/' };
 type State = Readonly<typeof initialState>;
 interface PropsType extends RouteComponentProps {
 }
@@ -18,10 +18,17 @@ class BasicMenu extends React.Component <PropsType, State> {
     this.props.history.push(e.key);
   };
 
+  componentWillMount () {
+    const {pathname} = this.props.history.location;
+    this.setState({
+      defaultSelectedKeys: pathname
+    });
+  };
+
   render () {
     return (
       <Menu
-        defaultSelectedKeys={[RouterConfig[0].path]}
+        defaultSelectedKeys={[this.state.defaultSelectedKeys]}
         mode="inline"
         style={{ height: '100%', borderRight: 0 }}
         onClick={this.handleMenu}

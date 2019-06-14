@@ -1,7 +1,10 @@
 import loadable from '../util/loadable'
 import {ProductRouter} from '@components/product/router/index';
+// 管理控制台
 const Dashboard = loadable(() => import('@components/dashboard/Dashboard'));
+// 账户设置
 const User = loadable(() => import('@components/user/User'));
+// 应用中心
 const Product = loadable(() => import('@components/product/Product'));
 const RouterConfig: any[] = [
   {

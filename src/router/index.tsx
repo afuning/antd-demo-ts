@@ -6,7 +6,6 @@ const routers = () => (
   <Switch>
     <Redirect from="/" to={RouterConfig[0].path} exact />
     {RouterConfig.map(item => {
-      console.log(item);
       return (
         <Route
           key={item.path}

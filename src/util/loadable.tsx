@@ -1,3 +1,4 @@
+// 按需加载
 import React from 'react';
 import Loadable from 'react-loadable';
 import { Skeleton } from 'antd';

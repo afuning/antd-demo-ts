@@ -9,7 +9,6 @@ const Product: React.FC = () => {
       <Switch>
         <Redirect from="/" to={"/sms-domestic/handle"} exact />
         {sortProductRouter.map((item: iRoute) => {
-          console.log(item);
           return (
             <Route
               key={item.path}

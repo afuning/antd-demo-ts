@@ -1,5 +1,6 @@
 import {iRoute} from "@models/global.interface";
 
+// 整理menu格式到一维路由数组，供router可用
 export const sortToRoute = (route: iRoute[]) => {
   let result: iRoute[] = [];
   const rl = (r: iRoute[]) => {
