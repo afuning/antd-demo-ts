@@ -1,7 +1,12 @@
 import UserStore from './modules/user';
 import ConstStroe from './modules/const';
 
-export const RootStore = {
-  mobxStore: new UserStore(),
+const RootStore = {
+  userStore: new UserStore(),
   ConstStroe: new ConstStroe()
 }
+export {
+  RootStore,
+  UserStore,
+  ConstStroe
+};

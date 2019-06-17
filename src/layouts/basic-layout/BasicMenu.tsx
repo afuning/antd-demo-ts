@@ -1,20 +1,31 @@
 import React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router';
+import { withRouter } from 'react-router';
+import { inject, observer } from "mobx-react";
 import RouterConfig from '@/router/routerConfig';
-import { iIcon } from '@/models/global.interface';
+import { iIcon, IBase } from '@/models/global.interface';
+import UserStore from '@store/modules/user'
 import { Menu, Icon } from 'antd';
 const {SubMenu, ItemGroup} = Menu;
 
 const initialState = { defaultSelectedKeys: '/' };
 type State = Readonly<typeof initialState>;
-interface PropsType extends RouteComponentProps {
-}
 
+interface PropsType extends IBase {
+  title?: string,
+}
+interface InjectedProps extends PropsType {
+  userStore: UserStore;
+}
+@inject("userStore")
+@observer
 class BasicMenu extends React.Component <PropsType, State> {
   readonly state: State = initialState;
 
+  get injected() {
+    return this.props as InjectedProps;
+  }
+
   private handleMenu = (e: any) => {
-    console.log(e);
     this.props.history.push(e.key);
   };
 
@@ -23,6 +34,7 @@ class BasicMenu extends React.Component <PropsType, State> {
     this.setState({
       defaultSelectedKeys: pathname
     });
+    console.log(this.injected)
   };
 
   render () {
@@ -100,4 +112,4 @@ const TitleRender: React.FC<TitlePropsType> = ({name, icon}) => {
 }
 
 
-export default withRouter(BasicMenu);
+export default withRouter(BasicMenu)

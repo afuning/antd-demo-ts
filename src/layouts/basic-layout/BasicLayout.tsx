@@ -27,7 +27,7 @@ class BasicLayout extends React.Component <PropsType, State> {
             onCollapse={this.onCollapse}
             theme="light"
           >
-            <BasicMenu />
+            <BasicMenu title="11111" />
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
             <BasicBread />
