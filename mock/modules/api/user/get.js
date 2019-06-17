@@ -3,7 +3,8 @@ module.exports = (req, res) => {
     code: 0,
     msg: 'ok',
     data: {
-      name: '阿福宁'
+      name: '阿福宁',
+      avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
     }
   })
 }

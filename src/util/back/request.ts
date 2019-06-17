@@ -53,7 +53,16 @@ const errorHandler = (error: ResponseError) => {
 const request = extend({
   prefix: '/api', // 默认前缀
   errorHandler, // 默认错误处理
-  credentials: 'include', // 默认请求是否带上cookie
+  // credentials: 'include', // 默认请求是否带上cookie
+});
+
+request.interceptors.request.use((url, options) => {
+  return (
+    {
+      url: `http://localhost:3001${url}`,
+      options: { ...options, interceptors: true },
+    }
+  );
 });
 
 export default request;

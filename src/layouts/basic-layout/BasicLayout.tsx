@@ -1,10 +1,10 @@
 import React from 'react';
 import BaseRouters from '@/router/index';
-import style from './style.module.less';
 import BasicMenu from './BasicMenu';
 import BasicBread from './BasicBread';
+import BasicHeader from './BasicHeader';
 import { Layout, BackTop } from 'antd';
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 const initialState = { collapsed: false };
 type State = Readonly<typeof initialState>;
@@ -19,7 +19,7 @@ class BasicLayout extends React.Component <PropsType, State> {
     const { collapsed } = this.state;
     return (
       <Layout>
-        <Header className={style['my-header']} style={{ padding: 0 }} />
+        <BasicHeader />
         <Layout style={{ minHeight: 'calc(100vh - 64px)' }}>
           <Sider
             collapsible

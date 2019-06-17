@@ -4,6 +4,9 @@ const server = restify.createServer();
 
 server.pre((req, res, next) => {
   req.headers.accept = 'application/json';
+  res.header("Access-Control-Allow-Origin", "*"); 
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); 
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
   const {pathname} = req.getUrl();
   const modulePath = './modules' + pathname;
   try {

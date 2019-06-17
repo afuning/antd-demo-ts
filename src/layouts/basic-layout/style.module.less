@@ -1,4 +1,16 @@
 @import '~@assets/theme.less';
 .my-header {
   background-color: @blue-5;
+  padding: 0;
+  position: 'fixed';
+  z-index: 1;
+  width: '100%';
+  &__user {
+    cursor: pointer;
+    color: #fff;
+  }
+  &__name {
+    color: #fff;
+    padding-right: 5px;
+  }
 }
