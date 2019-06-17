@@ -23,7 +23,8 @@ module.exports = {
       '@layouts': `${paths.appSrc}/layouts/`,
       '@components': `${paths.appSrc}/components/`,
       '@util': `${paths.appSrc}/util/`,
-      '@models': `${paths.appSrc}/models/`
+      '@models': `${paths.appSrc}/models/`,
+      '@store': `${paths.appSrc}/store/`
     }),
   )
 };

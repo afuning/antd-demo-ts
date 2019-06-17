@@ -7,7 +7,8 @@
       "@layouts/*": ["src/layouts/*"],
       "@components/*": ["src/components/*"],
       "@util/*": ["src/util/*"],
-      "@models/*": ["src/models/*"]
+      "@models/*": ["src/models/*"],
+      "@store/*": ["src/store/*"],
     }
   }
 }

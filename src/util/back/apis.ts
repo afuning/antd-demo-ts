@@ -1,5 +1,4 @@
 import request from "./request";
-import { string } from "prop-types";
 import { RequestOptionsInit } from "umi-request";
 /* 整合api接口为
 **{
@@ -53,11 +52,11 @@ const buildApis = (baseUrl: string, urlArray: (string | iUrl)[]) => {
   return apiResult;
 }
 
-const apis = buildApis ('/api', [
-  '/login/post',
+export const apis = buildApis ('/api', [
+  '/user/get',
 ]);
 
-const backCaller = async (apiUrl: string, data: object| undefined) => {
+export const backCaller = async (apiUrl: string, data: object| undefined) => {
   const urlObj: iApiConfig = apis[apiUrl];
   if (urlObj) {
     const {url, apiOption} = urlObj;
@@ -74,4 +73,3 @@ const backCaller = async (apiUrl: string, data: object| undefined) => {
   }
 }
 
-export default {apis, backCaller};
