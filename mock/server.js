@@ -25,15 +25,6 @@ server.pre((req, res, next) => {
     next();
   }
 });
-// server.get('/api/*', (req, res, next) => {
-//   res.send({
-//     msg: 'hahaha',
-//     code: 'ok'
-//   });
-//   // const modulePath = '../mock' + req.originalUrl.split('?')[0]
-//   console.dir(req.getRoute());
-//   return next();
-// });
 
 server.listen(3001, function () {
   console.log('');

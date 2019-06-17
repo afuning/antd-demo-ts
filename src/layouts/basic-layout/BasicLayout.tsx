@@ -3,6 +3,8 @@ import BaseRouters from '@/router/index';
 import BasicMenu from './BasicMenu';
 import BasicBread from './BasicBread';
 import BasicHeader from './BasicHeader';
+import { inject, observer } from "mobx-react";
+import {UserStore} from '@store/index';
 import { Layout, BackTop } from 'antd';
 const { Content, Sider } = Layout;
 
@@ -10,10 +12,24 @@ const initialState = { collapsed: false };
 type State = Readonly<typeof initialState>;
 type PropsType = {}
 
+interface InjectedProps extends PropsType {
+  userStore: UserStore;
+}
+
+@inject("userStore")
+@observer
 class BasicLayout extends React.Component <PropsType, State> {
   readonly state: State = initialState;
 
+  get injected() {
+    return this.props as InjectedProps;
+  }
+
   private onCollapse = () => this.setState(handleCollapse);
+
+  async componentDidMount () {
+    await this.injected.userStore.fetchUser();
+  }
 
   render () {
     const { collapsed } = this.state;

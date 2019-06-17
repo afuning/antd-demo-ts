@@ -54,6 +54,7 @@ const buildApis = (baseUrl: string, urlArray: (string | iUrl)[]) => {
 
 export const apis = buildApis ('/api', [
   '/user/get',
+  '/user/post'
 ]);
 
 export const backCaller = async (apiUrl: string, data: object| undefined) => {

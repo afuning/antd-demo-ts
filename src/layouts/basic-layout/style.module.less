@@ -1,6 +1,6 @@
 @import '~@assets/theme.less';
 .my-header {
-  background-color: @blue-5;
+  background-color: #fff;
   padding: 0;
   position: 'fixed';
   z-index: 1;
@@ -10,7 +10,61 @@
     color: #fff;
   }
   &__name {
-    color: #fff;
+    color: @primary-color;
     padding-right: 5px;
+  }
+}
+
+.my-header-menu {
+  width: 250px;
+  margin-left: -16px;
+  margin-right: -16px;
+  margin-top: -12px;
+  margin-bottom: -12px;
+  &__top {
+    background-color: #f4f4f4;
+    height: 80px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  &__verify {
+    color: @success-color;
+    font-size: @font-size-sm;
+  }
+  &__level {
+    position: absolute;
+    top: 28px;
+    right: 0;
+  }
+  &__list {
+    font-size: @font-size-base;
+    padding: 0 @padding-sm;
+    .item {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+      .item-left {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+          color: @primary-color;
+        }
+      }
+    }
+  }
+  &__divider {
+    margin-bottom: 0px;
+  }
+  &__bottom {
+    height: 30px;
+    line-height: 30px;
+    .bottom-link {
+      color: @text-color;
+      &:hover {
+        color: @primary-color;
+      }
+    }
   }
 }
