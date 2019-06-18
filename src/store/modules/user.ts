@@ -4,18 +4,22 @@ import {backCaller} from '@util/back/apis';
 export interface IUserStore {
   name: string;
   avatar: string;
+  level: number;
+  isVerify: boolean;
 }
 class UserStore implements IUserStore  {
   @observable name = "World";
+  @observable level = 0;
   @observable avatar = "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png";
+  @observable isVerify = false;
 
   fetchUser = flow(function * (this: UserStore) {
     try {
       const res = yield backCaller('/user/get', {});
       this.name = res.data.name;
       this.avatar = res.data.avatar;
-      console.log(res);
-      console.log(this)
+      this.level = res.data.level;
+      this.isVerify = res.data.isVerify;
     } catch (error) {
       console.log(error);
     }

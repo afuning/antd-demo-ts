@@ -1,22 +1,22 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 import { inject, observer } from "mobx-react";
-import RouterConfig from '@/router/routerConfig';
-import { iIcon, IBase } from '@/models/global.interface';
-import UserStore from '@store/modules/user'
+import RouterConfig, {matchMenuPath} from '@/router/routerConfig';
+import { iIcon, iRoute } from '@/models/global.interface';
+import {UserStore, RouterStore} from '@store/index';
 import { Menu, Icon } from 'antd';
 const {SubMenu, ItemGroup} = Menu;
 
 const initialState = { defaultSelectedKeys: '/' };
 type State = Readonly<typeof initialState>;
 
-interface PropsType extends IBase {
+interface PropsType {
   title?: string,
 }
 interface InjectedProps extends PropsType {
   userStore: UserStore;
+  routerStore: RouterStore;
 }
-@inject("userStore")
+@inject("userStore", "routerStore")
 @observer
 class BasicMenu extends React.Component <PropsType, State> {
   readonly state: State = initialState;
@@ -26,13 +26,13 @@ class BasicMenu extends React.Component <PropsType, State> {
   }
 
   private handleMenu = (e: any) => {
-    this.props.history.push(e.key);
+    this.injected.routerStore.history.push(e.key);
   };
 
   componentWillMount () {
-    const {pathname} = this.props.history.location;
+    const {pathname} = this.injected.routerStore.history.location;
     this.setState({
-      defaultSelectedKeys: pathname
+      defaultSelectedKeys: matchMenuPath(pathname)
     });
     console.log(this.injected)
   };
@@ -54,7 +54,7 @@ class BasicMenu extends React.Component <PropsType, State> {
 }
 
 type SubPropsType = {
-  routes: [],
+  routes?: iRoute[];
   name: string,
   path?: string,
   icon?: string | iIcon
@@ -112,4 +112,4 @@ const TitleRender: React.FC<TitlePropsType> = ({name, icon}) => {
 }
 
 
-export default withRouter(BasicMenu)
+export default BasicMenu

@@ -45,7 +45,7 @@ class BasicLayout extends React.Component <PropsType, State> {
           >
             <BasicMenu title="11111" />
           </Sider>
-          <Layout style={{ padding: '0 24px 24px' }}>
+          <Layout style={{ padding: '0 12px 12px' }}>
             <BasicBread />
             <Content
               style={{

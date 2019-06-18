@@ -10,11 +10,9 @@ export interface iIcon {
 }
 
 export interface iRoute {
+  icon?: string | iIcon,
   name: string,
   routes?: iRoute[];
   path?: string;
   component?: any;
-}
-
-export interface IBase extends RouteComponentProps {
 }

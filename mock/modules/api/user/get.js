@@ -4,7 +4,9 @@ module.exports = (req, res) => {
     msg: 'ok',
     data: {
       name: '阿福宁',
-      avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
+      avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+      level: 12,
+      isVerify: false
     }
   })
 }

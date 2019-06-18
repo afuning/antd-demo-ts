@@ -31,9 +31,9 @@ export const ProductRouter: iRoute[] = [
 const NotMenuProductRouter: iRoute[] = [
   {
     name: '短信发送数据',
-    path: '/app/sms-domestic/statistic/:direction(handle|member)',
+    path: '/app/sms-domestic/:direction(handle|member)/statistic',
     component: StaticIndex
   }
 ]
 
-export const sortProductRouter = sortToRoute([...ProductRouter, ...NotMenuProductRouter]);
+export const sortProductRouter = sortToRoute([...NotMenuProductRouter, ...ProductRouter]);

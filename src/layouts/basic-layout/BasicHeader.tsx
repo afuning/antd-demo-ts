@@ -30,6 +30,30 @@ class BasicHeader extends React.Component<PropsType> {
         <Row type="flex" justify="end" align="middle">
           
           <Col style={{paddingRight: '24px'}}>
+            <span>费用</span>
+          </Col>
+
+          <Col style={{paddingRight: '24px'}}>
+            <span>API文档</span>
+          </Col>
+
+          <Col style={{paddingRight: '24px'}}>
+            <Icon type="bell" />
+          </Col>
+
+          <Col style={{paddingRight: '24px'}}>
+            <Icon type="question-circle" />
+          </Col>
+
+          <Col style={{paddingRight: '24px'}}>
+            <Icon type="home" />
+          </Col>
+
+          <Col style={{paddingRight: '24px'}}>
+            <span>简体中文</span>
+          </Col>
+
+          <Col style={{paddingRight: '24px'}}>
             <Popover content={<UserMenu {...userStore} />} placement="bottomRight" arrowPointAtCenter>
               <div className={style['my-header__user']}>
                 <Avatar src={userStore.avatar} />
@@ -45,14 +69,19 @@ class BasicHeader extends React.Component<PropsType> {
   }
 }
 
-const UserMenu: React.FC<UserStore> = ({name}) => {
+// 用户hover后
+const UserMenu: React.FC<UserStore> = ({name, level, isVerify}) => {
   return (
     <div className={style['my-header-menu']}>
 
       <div className={style['my-header-menu__top']}>
         {name}<br />
-        <span className={style['my-header-menu__verify']}>已实名认证&nbsp;&nbsp;<Icon type="check-circle" /></span>
-        <div className={style['my-header-menu__level']}><Tag color="orange">orange</Tag></div>
+        {isVerify ? (
+          <span className={style['my-header-menu__verify']}>已实名认证&nbsp;&nbsp;<Icon type="check-circle" /></span>
+        ) : (
+          <span className={`${style['my-header-menu__verify']} ${style['my-header-menu__verify--not']}`}>未实名认证&nbsp;&nbsp;<Icon type="close-circle" /></span>
+        )}
+        <div className={style['my-header-menu__level']}><Tag color="orange">v{level}</Tag></div>
       </div>
 
       <div className={style['my-header-menu__list']}>

@@ -4,7 +4,7 @@ import RouterConfig from './routerConfig';
 
 const routers = () => (
   <Switch>
-    <Redirect from="/" to={RouterConfig[0].path} exact />
+    <Redirect from="/" to="/dashboard" exact />
     {RouterConfig.map(item => {
       return (
         <Route
