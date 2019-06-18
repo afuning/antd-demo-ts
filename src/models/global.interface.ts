@@ -16,3 +16,5 @@ export interface iRoute {
   path?: string;
   component?: any;
 }
+
+export interface iRouteComponent extends RouteComponentProps {}

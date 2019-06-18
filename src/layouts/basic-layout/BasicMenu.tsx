@@ -34,7 +34,6 @@ class BasicMenu extends React.Component <PropsType, State> {
     this.setState({
       defaultSelectedKeys: matchMenuPath(pathname)
     });
-    console.log(this.injected)
   };
 
   render () {

@@ -46,7 +46,7 @@ const RouterConfig: iRoute[] = [
 ];
 
 // 查找路由链路
-export const searchRouterLinkList = (path: string) => {
+export const searchRouterLinkList = (path: string): any[] => {
   let result: any[] = [];
   const c: any = (config: iRoute[]) => {
     for (let i = 0; i < config.length; i++) {
@@ -63,7 +63,7 @@ export const searchRouterLinkList = (path: string) => {
     }
   }
   c(RouterConfig);
-  return result;
+  return result.reverse();
 }
 
 /**
