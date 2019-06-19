@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## 介绍
 
-本项目主要是react+antd+react-router+Mobx+Typescript
+本项目主要是react+antd+react-router+Mobx+Typescript+react-app-rewired
 
 ### `npm dev`
 
