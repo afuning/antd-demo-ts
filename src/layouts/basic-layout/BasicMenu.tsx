@@ -1,12 +1,13 @@
 import React from 'react';
 import { inject, observer } from "mobx-react";
-import RouterConfig, {matchMenuPath} from '@/router/routerConfig';
+import {matchMenuPath} from '@/router/util';
+import RouterConfig from '@/router/routerConfig';
 import { iIcon, iRoute } from '@/models/global.interface';
 import {UserStore, RouterStore} from '@store/index';
 import { Menu, Icon } from 'antd';
 const {SubMenu, ItemGroup} = Menu;
 
-const initialState = { defaultSelectedKeys: '/' };
+const initialState = { defaultSelectedKeys: '/'};
 type State = Readonly<typeof initialState>;
 
 interface PropsType {

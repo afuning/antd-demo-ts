@@ -14,7 +14,7 @@ export const FinancialRouter: iRoute[] = [
     component: Recharge
   },
   {
-    name: '会员发送',
+    name: '发票',
     path: '/financial/invoice',
     component: Invoice
   }

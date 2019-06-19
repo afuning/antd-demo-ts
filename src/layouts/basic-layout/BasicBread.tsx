@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { inject, observer } from "mobx-react";
 import {RouterStore} from '@store/index';
 import { Breadcrumb } from 'antd';
-import {searchRouterLinkList} from '@/router/routerConfig';
+import {searchRouterLinkList} from '@/router/util';
 import {iRouteComponent} from '@models/global.interface'; 
 
 const initialState = { c: [] };
@@ -25,15 +25,6 @@ class BasicBread extends React.Component <BasicBreadType, State> {
 
   get injected() {
     return this.props as InjectedProps;
-  };
-  
-  componentDidMount () {
-    console.log(this.injected.routerStore);
-    // const {pathname} = this.injected.routerStore.history.location;
-    // this.setState({
-    //   c: searchRouterLinkList(pathname)
-    // })
-    // console.log(searchRouterLinkList('/app/sms-domestic/handle'));
   };
 
   render () {

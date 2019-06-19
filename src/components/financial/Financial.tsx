@@ -7,7 +7,7 @@ const Product: React.FC = () => {
   return (
     <div className="financial">
       <Switch>
-        <Redirect from="/" to={"/sms-domestic/handle"} exact />
+        <Redirect from="/financial" to={"/financial/recharge"} exact />
         {sortFinancialRouter.map((item: iRoute) => {
           return (
             <Route
