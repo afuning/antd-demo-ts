@@ -25,7 +25,7 @@ export const searchRouterLinkList = (path: string): any[] => {
  * 查找当前路由匹配menu
  * 若存在menu中则选中
  * 若不存在menu中则，去掉最后一位路径再次匹配
- * 
+ * 若最后均不存在，则返回/dashboard
  * @param {String} path
  */
 export const matchMenuPath = (path: string) => {
@@ -49,5 +49,5 @@ export const matchMenuPath = (path: string) => {
       pathArray.pop();
     }
   } while (pathArray.length >= 1);
-  return '/';
+  return '/dashboard';
 }

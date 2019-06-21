@@ -1,4 +1,11 @@
-// 练习高阶组件
+/**
+ * 练习高阶组件
+ * 基础table组件
+ * 
+ * @param {Component} 组件
+ * @param {iConfig} 配置项
+ * 
+ */
 import { Subtract } from 'utility-types';
 import React from 'react';
 import { PaginationConfig } from 'antd/lib/table';
@@ -6,6 +13,7 @@ import {backCaller} from '@util/back/apis';
 import {CODE} from '@util/constants/index';
 import {message} from 'antd';
 
+// 传入组件所需props
 export interface InjectedTablePageProps {
   dataSource: any;
   pagination: PaginationConfig;
@@ -13,6 +21,7 @@ export interface InjectedTablePageProps {
   handleTableChange(): void;
 }
 
+// 初始化State
 const initialState = {
   pagination: {
     pageSize: 10,
@@ -22,12 +31,14 @@ const initialState = {
   loading: false,
   dataSource: []
 };
+// State接口
 interface State {
   pagination: PaginationConfig,
   loading: boolean,
   dataSource: any
 };
 
+// 配置config接口
 interface iConfig {
   apiUrl: string
 }
