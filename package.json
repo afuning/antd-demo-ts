@@ -26,7 +26,8 @@
     "react-scripts": "3.0.1",
     "restify": "^8.3.3",
     "typescript": "^3.4.5",
-    "umi-request": "^1.0.8"
+    "umi-request": "^1.0.8",
+    "utility-types": "^3.7.0"
   },
   "scripts": {
     "dev": "concurrently \"yarn mock\" \"yarn start\"",

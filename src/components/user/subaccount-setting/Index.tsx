@@ -1,48 +1,45 @@
 import React from 'react';
-import {Table, Typography, Divider, Button} from 'antd';
-import { ColumnProps } from 'antd/lib/table';
+import {Typography, Table} from 'antd';
 import style from '../style.module.less';
+import withTablePage, { InjectedTablePageProps } from '@/stdcpts/withTablePage';
+import { ColumnProps } from 'antd/lib/table';
 
-interface IUser {
-  key: number;
+// 当前表格数据接口
+interface iUser {
   name: string;
+  id: number;
 }
-interface PropsType {}
+// 当前组件props接口
+interface PropsType extends InjectedTablePageProps  {
+  dataSource: iUser[];
+}
+// 当前组件state接口
+const initialState = {};
+interface StateType {}
 
-const data: IUser[] = [{
-  key: 0,
-  name: 'Jack',
-}];
+class SubaccountSetting extends React.Component<PropsType, StateType> {
+  readonly state: StateType = initialState;
+  columns: ColumnProps<iUser>[] =[
+    {title: "ID", dataIndex: 'id'},
+    {title: "姓名", dataIndex: 'name'}
+  ];
 
-
-class SubaccountSetting extends React.Component<PropsType> {
-  columns: ColumnProps<IUser>[] = [{
-    key: 'name',
-    title: 'Name',
-    dataIndex: 'name',
-  }, {
-    key: 'action',
-    title: 'Action',
-    dataIndex: 'action',
-    render: () => (
-      <span>
-        <Button type="link" onClick={this.handleDelete}>Delete</Button>
-        <Divider type="vertical" />
-        <Button type="link" onClick={this.handleDelete}>Add</Button>
-      </span>
-    )
-  }];
-  handleDelete = () => {
-    console.log(11111);
-  };
   render () {
+    const {dataSource, pagination, handleTableChange, loading} = this.props;
     return (
       <div className={style['subaccount-setting']}>
         <Typography.Title level={4}>子账号设置</Typography.Title>
-        <Table<IUser> columns={this.columns} dataSource={data} />
+        <Table
+          columns={this.columns}
+          dataSource={dataSource}
+          pagination={pagination}
+          loading={loading}
+          onChange={handleTableChange}
+        />
       </div>
     )
   }
 }
+const SubaccountSettingWithTablePage = withTablePage(SubaccountSetting, {apiUrl: '/subaccount/search'})
 
-export default SubaccountSetting
+export default SubaccountSettingWithTablePage
