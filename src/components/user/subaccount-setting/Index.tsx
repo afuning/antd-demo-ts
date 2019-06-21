@@ -20,8 +20,8 @@ interface StateType {}
 class SubaccountSetting extends React.Component<PropsType, StateType> {
   readonly state: StateType = initialState;
   columns: ColumnProps<iUser>[] =[
-    {title: "ID", dataIndex: 'id'},
-    {title: "姓名", dataIndex: 'name'}
+    {title: "ID", dataIndex: 'id', key: 'id'},
+    {title: "姓名", dataIndex: 'name', key: 'name'}
   ];
 
   render () {
@@ -30,6 +30,7 @@ class SubaccountSetting extends React.Component<PropsType, StateType> {
       <div className={style['subaccount-setting']}>
         <Typography.Title level={4}>子账号设置</Typography.Title>
         <Table
+          rowKey="id"
           columns={this.columns}
           dataSource={dataSource}
           pagination={pagination}
