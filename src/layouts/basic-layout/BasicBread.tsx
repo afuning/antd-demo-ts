@@ -6,13 +6,7 @@ import { Breadcrumb } from 'antd';
 import {searchRouterLinkList} from '@/router/util';
 import {iRouteComponent} from '@models/global.interface'; 
 
-const initialState = { c: [] };
-interface State {
-  c: any[],
-};
-
 interface BasicBreadType extends iRouteComponent {
-
 };
 interface InjectedProps extends BasicBreadType {
   routerStore: RouterStore;
@@ -20,8 +14,7 @@ interface InjectedProps extends BasicBreadType {
 
 @inject("routerStore")
 @observer
-class BasicBread extends React.Component <BasicBreadType, State> {
-  readonly state: State = initialState;
+class BasicBread extends React.Component <BasicBreadType> {
 
   get injected() {
     return this.props as InjectedProps;
@@ -30,7 +23,6 @@ class BasicBread extends React.Component <BasicBreadType, State> {
   render () {
     const {pathname} = this.injected.routerStore.history.location;
     const c = searchRouterLinkList(pathname);
-    console.log(c);
     return (
       <Breadcrumb style={{ margin: '16px 0' }}>
         {c.map(BreadcrumbItem)}

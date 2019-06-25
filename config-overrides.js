@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-computed-key */
 const { paths } = require("react-app-rewired");
-const { override, fixBabelImports, addLessLoader, babelInclude, enableEslintTypescript, addWebpackAlias, overrideDevServer } = require('customize-cra');
+const { override, fixBabelImports, addLessLoader, babelInclude, enableEslintTypescript, addWebpackAlias } = require('customize-cra');
 
 module.exports = {
   webpack: override(

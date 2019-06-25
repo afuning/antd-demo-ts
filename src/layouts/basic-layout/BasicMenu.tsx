@@ -3,7 +3,7 @@ import { inject, observer } from "mobx-react";
 import {matchMenuPath} from '@/router/util';
 import RouterConfig from '@/router/routerConfig';
 import { iIcon, iRoute } from '@/models/global.interface';
-import {UserStore, RouterStore} from '@store/index';
+import {RouterStore} from '@store/index';
 import { Menu, Icon } from 'antd';
 const {SubMenu, ItemGroup} = Menu;
 
@@ -14,10 +14,9 @@ interface PropsType {
   title?: string,
 }
 interface InjectedProps extends PropsType {
-  userStore: UserStore;
   routerStore: RouterStore;
 }
-@inject("userStore", "routerStore")
+@inject("routerStore")
 @observer
 class BasicMenu extends React.Component <PropsType, State> {
   readonly state: State = initialState;

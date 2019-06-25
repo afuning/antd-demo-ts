@@ -4,9 +4,6 @@ import {UserStore} from '@store/index';
 import style from './style.module.less';
 import { Layout, Avatar, Row, Col, Popover, Icon, Tag, Button, Divider } from 'antd';
 
-const initialState = {};
-type State = Readonly<typeof initialState>;
-
 interface PropsType {
   title?: string,
 }
@@ -17,7 +14,6 @@ interface InjectedProps extends PropsType {
 @inject("userStore")
 @observer
 class BasicHeader extends React.Component<PropsType> {
-  readonly state: State = initialState;
 
   get injected() {
     return this.props as InjectedProps;
