@@ -1,9 +1,5 @@
 import { RouteComponentProps } from 'react-router-dom';
 import { PaginationConfig } from 'antd/lib/table';
-import {
-  UserStore,
-  ConstStroe
-} from '@store/index';
 
 export interface iIcon {
   type: string;
@@ -16,10 +12,6 @@ export interface iRoute {
   routes?: iRoute[];
   path?: string;
   component?: any;
-}
-
-export interface iPagination {
-  pagination: PaginationConfig
 }
 
 export interface iRouteComponent extends RouteComponentProps {}
