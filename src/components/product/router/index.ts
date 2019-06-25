@@ -1,6 +1,6 @@
-import loadable from '@util/loadable';
+import {loadable} from '@util/index';
 import {iRoute} from "@models/global.interface";
-import {sortToRoute} from '@util/index';
+import {sortToRoute} from '@/router/util';
 // 国内短信-手工
 const Handle = loadable(() => import('@components/product/domestic/Handle'));
 // 国内短信-会员营销

@@ -1,5 +1,5 @@
 import {observable, flow} from 'mobx';
-import {backCaller} from '@util/back/apis';
+import {backCaller} from '@util/index';
 
 export interface IUserStore {
   name: string;

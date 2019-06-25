@@ -1,4 +1,4 @@
-import {CODE} from '@util/constants/index'
+import {CODE} from '@util/index'
 class ConstStore {
   CODE = CODE
 }

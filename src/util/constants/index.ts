@@ -1,1 +1,0 @@
-export { CODE } from './const';

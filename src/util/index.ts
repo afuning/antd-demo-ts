@@ -1,18 +1,8 @@
-import {iRoute} from "@models/global.interface";
+export { backCaller } from './back/apis';
 
-// 整理menu格式到一维路由数组，供router可用
-export const sortToRoute = (route: iRoute[]) => {
-  let result: iRoute[] = [];
-  const rl = (r: iRoute[]) => {
-    r.forEach((nextr: iRoute) => {
-      if (nextr.path) {
-        result.push({path: nextr.path, component: nextr.component, name: nextr.name});
-      }
-      if (nextr.routes && nextr.routes.length > 0) {
-        rl(nextr.routes);
-      }
-    })
-  }
-  rl(route)
-  return result;
-}
+
+// Static
+export { CODE } from './constants/const';
+
+// 按需加载
+export {default as loadable} from './loadable';

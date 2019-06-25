@@ -9,8 +9,8 @@
 import { Subtract } from 'utility-types';
 import React from 'react';
 import { PaginationConfig } from 'antd/lib/table';
-import {backCaller} from '@util/back/apis';
-import {CODE} from '@util/constants/index';
+import {backCaller} from '@util/index';
+import {CODE} from '@util/index';
 import {message} from 'antd';
 
 // 传入组件所需props
@@ -19,6 +19,11 @@ export interface InjectedTablePageProps {
   pagination: PaginationConfig;
   loading: boolean;
   handleTableChange(): void;
+}
+
+// 配置config接口
+interface iConfig {
+  apiUrl: string
 }
 
 // 初始化State
@@ -37,11 +42,6 @@ interface State {
   loading: boolean,
   dataSource: any
 };
-
-// 配置config接口
-interface iConfig {
-  apiUrl: string
-}
 
 const withTablePage = <P  extends InjectedTablePageProps>(WrappedComponent: React.ComponentType<P>, config: iConfig) => 
   class WithTablePage extends React.Component<Subtract<P, InjectedTablePageProps>, State>  {
@@ -71,14 +71,6 @@ const withTablePage = <P  extends InjectedTablePageProps>(WrappedComponent: Reac
         message.error(error);
         this.setState({ loading: false });
       }
-    };
-
-    componentDidUpdate() {
-      // 获取数据
-    };
-
-    handleButton = () => {
-      console.log(11111);
     };
 
     handleTableChange = (pagination: PaginationConfig) => {
