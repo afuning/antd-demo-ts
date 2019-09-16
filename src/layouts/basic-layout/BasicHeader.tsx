@@ -1,6 +1,7 @@
 import React from 'react';
 import { inject, observer } from "mobx-react";
-import {UserStore} from '@store/index';
+import { UserStore } from '@store/index';
+import { IUserStore } from '@store/modules/user';
 import style from './style.module.less';
 import { Layout, Avatar, Row, Col, Popover, Icon, Tag, Button, Divider } from 'antd';
 
@@ -20,7 +21,7 @@ class BasicHeader extends React.Component<PropsType> {
   }
 
   render () {
-    const {userStore} = this.injected
+    const {userStore: {name, level, isVerify, avatar} } = this.injected
     return (
       <Layout.Header className={style['my-header']}>
         <Row type="flex" justify="end" align="middle">
@@ -50,10 +51,10 @@ class BasicHeader extends React.Component<PropsType> {
           </Col>
 
           <Col style={{paddingRight: '24px'}}>
-            <Popover content={<UserMenu {...userStore} />} placement="bottomRight" arrowPointAtCenter>
+            <Popover content={<UserMenu {...{name, level, isVerify, avatar}} />} placement="bottomRight" arrowPointAtCenter>
               <div className={style['my-header__user']}>
-                <Avatar src={userStore.avatar} />
-                <span className={style['my-header__name']}>{userStore.name}</span>
+                <Avatar src={avatar} />
+                <span className={style['my-header__name']}>{name}</span>
                 <Icon type="caret-down" />
               </div>
             </Popover>
@@ -66,7 +67,7 @@ class BasicHeader extends React.Component<PropsType> {
 }
 
 // 用户hover后
-const UserMenu: React.FC<UserStore> = ({name, level, isVerify}) => {
+const UserMenu: React.FC<IUserStore> = ({name, level, isVerify, avatar}) => {
   return (
     <div className={style['my-header-menu']}>
 

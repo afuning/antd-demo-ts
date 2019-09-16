@@ -15,7 +15,7 @@ import {message} from 'antd';
 
 // 传入组件所需props
 export interface InjectedTablePageProps {
-  dataSource: any;
+  dataSource: Array<any>;
   pagination: PaginationConfig;
   loading: boolean;
   handleTableChange(): void;
@@ -40,10 +40,10 @@ const initialState = {
 interface State {
   pagination: PaginationConfig,
   loading: boolean,
-  dataSource: any
+  dataSource: Array<any>
 };
 
-const withTablePage = <P  extends InjectedTablePageProps>(WrappedComponent: React.ComponentType<P>, config: iConfig) => 
+const withTablePage = <P extends InjectedTablePageProps>(WrappedComponent: React.ComponentType<P>, config: iConfig) => 
   class WithTablePage extends React.Component<Subtract<P, InjectedTablePageProps>, State>  {
     readonly state = {
       ...initialState,
@@ -65,10 +65,10 @@ const withTablePage = <P  extends InjectedTablePageProps>(WrappedComponent: Reac
             loading: false
           })
         } else {
-          throw res.message;
+          throw Error(res.message);
         }
       } catch (error) {
-        message.error(error);
+        message.error(error.message);
         this.setState({ loading: false });
       }
     };
