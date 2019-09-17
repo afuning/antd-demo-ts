@@ -4,7 +4,8 @@ import '@assets/index.less';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-console.log(5)
+console.log(1)
+console.log(2)
 ReactDOM.render(<App />, document.getElementById('root'));
 console.log(333)
 // If you want your app to work offline and load faster, you can change
